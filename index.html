@@ -1,12 +1,6 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-5LXCW4NJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-</script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#101214" />
@@ -15,7 +9,7 @@
       content="SYSTEM 01: hardware de PC con modelos 3D interactivos."
     />
     <title>SYSTEM 01 — Hardware Store</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="./style.css" />
     <script type="importmap">
       {
         "imports": {
@@ -333,7 +327,7 @@ const catalogItems = [
     title: "CUSTOM GAMING PC",
     buttonName: "Custom gaming PC",
     kicker: "DESKTOP PLATFORM / GLB 2.0",
-    model: "/models/pc-glb/custom-gaming-pc.glb",
+    model: "./models/pc-glb/custom-gaming-pc.glb",
     description:
       "Gabinete y plataforma ensamblada para revisar proporciones, refrigeración y conectividad.",
     points: [
@@ -353,7 +347,7 @@ const catalogItems = [
     title: "PCIe NETWORK CARD",
     buttonName: "PCIe network card",
     kicker: "NETWORK COMPONENT / GLB 2.0",
-    model: "/models/nic-glb/pcie-network-card-dual-port.glb",
+    model: "./models/nic-glb/pcie-network-card-dual-port.glb",
     description:
       "Tarjeta PCIe de doble puerto gigabit para ampliar la conectividad de una estación de trabajo.",
     points: [
@@ -373,7 +367,7 @@ const catalogItems = [
     title: "DOMINATOR RGB",
     buttonName: "Corsair Dominator RGB",
     kicker: "MEMORY MODULE / GLB 2.0",
-    model: "/models/ram/corsair-dominator-rgb.glb",
+    model: "./models/ram/corsair-dominator-rgb.glb",
     description:
       "Módulo de memoria con disipador y barra RGB para builds de alto rendimiento.",
     points: [
@@ -393,7 +387,7 @@ const catalogItems = [
     title: "RTX 5090",
     buttonName: "RTX 5090",
     kicker: "GRAPHICS CARD / GLB 2.0",
-    model: "/models/rtx/rtx-4090.glb",
+    model: "./models/rtx/rtx-4090.glb",
     description:
       "Tarjeta gráfica de gran formato para estaciones de juego y creación de contenido.",
     points: [
@@ -413,7 +407,7 @@ const catalogItems = [
     title: "MOTHERBOARD ASUS",
     buttonName: "Motherboard ASUS",
     kicker: "MAINBOARD COMPONENT / GLB 2.0",
-    model: "/models/motherboard/motherboard-asus.glb",
+    model: "./models/motherboard/motherboard-asus.glb",
     description:
       "Placa base ASUS con socket, ranuras de memoria, expansión y conectividad de I/O.",
     points: [
@@ -433,7 +427,7 @@ const catalogItems = [
     title: "RYZEN 7600X",
     buttonName: "Ryzen 7600X",
     kicker: "PROCESSOR COMPONENT / GLB 2.0",
-    model: "/models/cpu/ryzen-7600x.glb",
+    model: "./models/cpu/ryzen-7600x.glb",
     description:
       "Procesador AMD Ryzen 7600X presentado como pieza individual para revisar su encapsulado.",
     points: [
@@ -453,7 +447,7 @@ const catalogItems = [
     title: "POWER SUPPLY",
     buttonName: "Power Supply",
     kicker: "POWER COMPONENT / GLB 2.0",
-    model: "/models/psu/power-supply.glb",
+    model: "./models/psu/power-supply.glb",
     description:
       "Fuente de poder con carcasa, ventilador, entrada de corriente y conectores.",
     points: [
@@ -499,7 +493,7 @@ function makeLoader(product) {
 
   if (product.id === 'pc') {
     const dracoLoader = new DRACOLoader();
-    dracoLoader.setDecoderPath('/draco/');
+    dracoLoader.setDecoderPath('./draco/');
     loader.setDRACOLoader(dracoLoader);
   }
 
