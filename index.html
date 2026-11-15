@@ -1,0 +1,1088 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101214" />
+    <meta
+      name="description"
+      content="SYSTEM 01: hardware de PC con modelos 3D interactivos."
+    />
+    <title>SYSTEM 01 — Hardware Store</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="app">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="SYSTEM 01, inicio">
+          <span class="brand-mark" aria-hidden="true"
+            ><i></i><i></i><i></i
+          ></span>
+          <span>SYSTEM 01</span>
+        </a>
+        <nav class="main-nav" aria-label="Navegación principal">
+          <a href="#shop">Hardware</a>
+          <a href="#evidence">Por qué SYSTEM 01</a>
+        </nav>
+        <button
+          id="cart-open"
+          class="cart-button"
+          type="button"
+          aria-label="Abrir carrito"
+        >
+          <span>Carrito</span><b id="cart-count">0</b
+          ><span aria-hidden="true">↗</span>
+        </button>
+      </header>
+
+      <main id="top">
+        <section class="hero section-shell">
+          <div class="hero-copy">
+            <p class="eyebrow"><span>01</span> HARDWARE / 3D CATALOG</p>
+            <h1>Diseñado para<br /><em>rendir.</em></h1>
+            <p class="hero-lede">
+              Componentes reales, modelos 3D interactivos y datos claros para
+              comprar con mejor criterio.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#shop"
+                >Explorar hardware <span>↘</span></a
+              >
+              <span class="hero-note"
+                >Modelos suministrados<br />por el usuario</span
+              >
+            </div>
+          </div>
+          <div class="hero-stage" aria-label="Vista previa 3D de hardware">
+            <div class="hero-grid"></div>
+            <div class="hero-badge">3D / LIVE VIEW</div>
+            <div class="hero-object">
+              <span class="hero-object-line"></span>
+              <span class="hero-object-label">SYSTEM 01</span>
+              <span class="hero-object-core"></span>
+            </div>
+            <div class="hero-caption">
+              <span>01</span>
+              <strong>ABRE CUALQUIER PRODUCTO</strong>
+              <small>Gira, acerca y revisa antes de comprar.</small>
+            </div>
+          </div>
+        </section>
+
+        <section class="category-strip section-shell" aria-label="Categorías">
+          <button
+            class="category-filter is-active"
+            type="button"
+            data-category="all"
+          >
+            Todos <span>07</span>
+          </button>
+          <button
+            class="category-filter"
+            type="button"
+            data-category="platform"
+          >
+            Plataformas <span>01</span>
+          </button>
+          <button
+            class="category-filter"
+            type="button"
+            data-category="graphics"
+          >
+            Gráficos <span>01</span>
+          </button>
+          <button
+            class="category-filter"
+            type="button"
+            data-category="components"
+          >
+            Componentes <span>05</span>
+          </button>
+        </section>
+
+        <section id="shop" class="shop-section section-shell">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow"><span>02</span> SELECCIÓN DE HARDWARE</p>
+              <h2>Componentes<br /><em>que puedes inspeccionar.</em></h2>
+            </div>
+            <p>
+              Precios de demostración<br />reemplazables por precios reales.
+            </p>
+          </div>
+          <div id="product-grid" class="product-grid" aria-live="polite"></div>
+        </section>
+
+        <section class="promo-band section-shell">
+          <div>
+            <p class="eyebrow"><span>03</span> BUILD WITH EVIDENCE</p>
+            <h2>Compra la pieza.<br /><em>Entiende la pieza.</em></h2>
+          </div>
+          <p>
+            Un modelo 3D no sustituye la ficha técnica. Te ayuda a ver qué estás
+            comprando antes de pagar.
+          </p>
+          <a class="button button-outline" href="#evidence"
+            >Leer el enfoque <span>↘</span></a
+          >
+        </section>
+
+        <section id="evidence" class="evidence-section section-shell">
+          <div class="section-heading compact">
+            <div>
+              <p class="eyebrow"><span>04</span> UNA TIENDA DISTINTA</p>
+              <h2>Sin fotos<br /><em>de stock.</em></h2>
+            </div>
+          </div>
+          <div class="evidence-cards">
+            <article>
+              <b>01</b>
+              <h3>Ver antes de comprar</h3>
+              <p>
+                Abre el componente en un visor 3D, rota, acerca y revisa sus
+                proporciones.
+              </p>
+            </article>
+            <article>
+              <b>02</b>
+              <h3>Datos sin humo</h3>
+              <p>
+                Los precios de esta demo están marcados como provisionales. Las
+                decisiones importantes quedan visibles.
+              </p>
+            </article>
+            <article>
+              <b>03</b>
+              <h3>Tu criterio primero</h3>
+              <p>
+                La herramienta expone el objeto; tú decides si encaja con tu
+                sistema.
+              </p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer section-shell">
+        <span>SYSTEM 01 / HARDWARE STORE</span>
+        <span>NO CLAIMS WITHOUT A SOURCE</span>
+        <span>© 2026</span>
+      </footer>
+
+      <div id="product-modal" class="overlay" hidden>
+        <div
+          class="modal-card"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-title"
+        >
+          <div class="modal-top">
+            <span id="modal-category" class="eyebrow">PRODUCT / 3D VIEW</span>
+            <button
+              id="modal-close"
+              class="icon-button"
+              type="button"
+              aria-label="Cerrar detalle"
+            >
+              ×
+            </button>
+          </div>
+          <div class="modal-layout">
+            <div id="modal-viewer" class="modal-viewer">
+              <div class="modal-grid"></div>
+              <div id="modal-load" class="modal-status">CARGANDO MODELO 3D</div>
+            </div>
+            <div class="modal-info">
+              <p id="modal-index" class="eyebrow">ASSET 01</p>
+              <h2 id="modal-title">Producto</h2>
+              <p id="modal-description" class="modal-description"></p>
+              <div class="modal-price">
+                <span>PRECIO DE DEMOSTRACIÓN</span>
+                <strong id="modal-price">$0.00</strong>
+              </div>
+              <p class="demo-note">
+                Precio provisional. Reemplázalo por tu precio real antes de
+                publicar.
+              </p>
+              <button
+                id="modal-add"
+                class="button button-primary button-wide"
+                type="button"
+              >
+                Agregar al carrito <span>+</span>
+              </button>
+              <div class="modal-controls">
+                <span><kbd>DRAG</kbd> ROTAR</span>
+                <span><kbd>SCROLL</kbd> ZOOM</span>
+                <button id="modal-reset" type="button">RESET VIEW</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside
+        id="cart-drawer"
+        class="drawer"
+        aria-label="Carrito"
+        aria-hidden="true"
+      >
+        <div class="drawer-head">
+          <div>
+            <p class="eyebrow"><span>05</span> TU SELECCIÓN</p>
+            <h2>Carrito</h2>
+          </div>
+          <button
+            id="cart-close"
+            class="icon-button"
+            type="button"
+            aria-label="Cerrar carrito"
+          >
+            ×
+          </button>
+        </div>
+        <div id="cart-lines" class="cart-lines"></div>
+        <div class="cart-summary">
+          <div>
+            <span>Subtotal</span><strong id="cart-subtotal">$0.00</strong>
+          </div>
+          <div><span>Envío</span><strong id="cart-shipping">$0.00</strong></div>
+          <div class="cart-total">
+            <span>Total</span><strong id="cart-total">$0.00</strong>
+          </div>
+          <button
+            id="checkout-open"
+            class="button button-primary button-wide"
+            type="button"
+          >
+            Continuar al checkout <span>→</span>
+          </button>
+          <p class="demo-note">
+            Checkout demostrativo. No se procesarán pagos.
+          </p>
+        </div>
+      </aside>
+      <div id="drawer-scrim" class="drawer-scrim" hidden></div>
+
+      <div id="checkout-modal" class="overlay" hidden>
+        <div
+          class="checkout-card"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="checkout-title"
+        >
+          <div class="modal-top">
+            <span class="eyebrow">06 / CHECKOUT DEMO</span>
+            <button
+              id="checkout-close"
+              class="icon-button"
+              type="button"
+              aria-label="Cerrar checkout"
+            >
+              ×
+            </button>
+          </div>
+          <h2 id="checkout-title">Finaliza tu<br /><em>selección.</em></h2>
+          <form id="checkout-form" class="checkout-form">
+            <p class="checkout-copy">
+              Este flujo muestra cómo funcionaría una compra. No recopila datos
+              personales ni procesa pagos reales.
+            </p>
+            <label class="demo-check"
+              ><input required type="checkbox" name="demo" /> Confirmo que esta
+              es una orden de demostración.</label
+            >
+            <div class="checkout-order">
+              <span>Total provisional</span
+              ><strong id="checkout-total">$0.00</strong>
+            </div>
+            <button class="button button-primary button-wide" type="submit">
+              Confirmar pedido de demostración <span>→</span>
+            </button>
+          </form>
+          <p id="checkout-success" class="checkout-success" hidden>
+            Pedido de demostración recibido. No se realizó ningún cobro.
+          </p>
+        </div>
+      </div>
+    </div>
+    <script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js';
+import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/controls/OrbitControls.js';
+import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/loaders/DRACOLoader.js';
+
+const catalogItems = [
+  {
+    id: "pc",
+    index: "ASSET 01",
+    name: "Custom Gaming PC",
+    title: "CUSTOM GAMING PC",
+    buttonName: "Custom gaming PC",
+    kicker: "DESKTOP PLATFORM / GLB 2.0",
+    model: "/models/pc-glb/custom-gaming-pc.glb",
+    description:
+      "Gabinete y plataforma ensamblada para revisar proporciones, refrigeración y conectividad.",
+    points: [
+      "Chassis / outer shell",
+      "Component interior",
+      "Cooling system",
+      "Connector edge",
+    ],
+    price: 1299,
+    category: "platform",
+    tag: "BUILD STARTER",
+  },
+  {
+    id: "nic",
+    index: "ASSET 02",
+    name: "PCIe Network Card",
+    title: "PCIe NETWORK CARD",
+    buttonName: "PCIe network card",
+    kicker: "NETWORK COMPONENT / GLB 2.0",
+    model: "/models/nic-glb/pcie-network-card-dual-port.glb",
+    description:
+      "Tarjeta PCIe de doble puerto gigabit para ampliar la conectividad de una estación de trabajo.",
+    points: [
+      "Board / substrate",
+      "Dual port interface",
+      "Component field / logic",
+      "Mounting edge / fit",
+    ],
+    price: 89,
+    category: "components",
+    tag: "CONNECTIVITY",
+  },
+  {
+    id: "ram",
+    index: "ASSET 03",
+    name: "Corsair Dominator RGB",
+    title: "DOMINATOR RGB",
+    buttonName: "Corsair Dominator RGB",
+    kicker: "MEMORY MODULE / GLB 2.0",
+    model: "/models/ram/corsair-dominator-rgb.glb",
+    description:
+      "Módulo de memoria con disipador y barra RGB para builds de alto rendimiento.",
+    points: [
+      "Heat spreader / shell",
+      "RGB light bar",
+      "Memory body",
+      "Contact edge",
+    ],
+    price: 119,
+    category: "components",
+    tag: "MEMORY",
+  },
+  {
+    id: "rtx",
+    index: "ASSET 04",
+    name: "RTX 5090",
+    title: "RTX 5090",
+    buttonName: "RTX 5090",
+    kicker: "GRAPHICS CARD / GLB 2.0",
+    model: "/models/rtx/rtx-4090.glb",
+    description:
+      "Tarjeta gráfica de gran formato para estaciones de juego y creación de contenido.",
+    points: [
+      "Shroud / outer shell",
+      "Fan assembly",
+      "Heat sink body",
+      "Connector edge",
+    ],
+    price: 1599,
+    category: "graphics",
+    tag: "GRAPHICS",
+  },
+  {
+    id: "motherboard",
+    index: "ASSET 05",
+    name: "Motherboard ASUS",
+    title: "MOTHERBOARD ASUS",
+    buttonName: "Motherboard ASUS",
+    kicker: "MAINBOARD COMPONENT / GLB 2.0",
+    model: "/models/motherboard/motherboard-asus.glb",
+    description:
+      "Placa base ASUS con socket, ranuras de memoria, expansión y conectividad de I/O.",
+    points: [
+      "PCB / substrate",
+      "CPU socket area",
+      "Memory slots",
+      "Expansion and I/O edge",
+    ],
+    price: 229,
+    category: "components",
+    tag: "MAINBOARD",
+  },
+  {
+    id: "cpu",
+    index: "ASSET 06",
+    name: "Ryzen 7600X",
+    title: "RYZEN 7600X",
+    buttonName: "Ryzen 7600X",
+    kicker: "PROCESSOR COMPONENT / GLB 2.0",
+    model: "/models/cpu/ryzen-7600x.glb",
+    description:
+      "Procesador AMD Ryzen 7600X presentado como pieza individual para revisar su encapsulado.",
+    points: [
+      "Heat spreader / lid",
+      "CPU package",
+      "Contact underside",
+      "Edge profile",
+    ],
+    price: 229,
+    category: "components",
+    tag: "PROCESSOR",
+  },
+  {
+    id: "psu",
+    index: "ASSET 07",
+    name: "Power Supply",
+    title: "POWER SUPPLY",
+    buttonName: "Power Supply",
+    kicker: "POWER COMPONENT / GLB 2.0",
+    model: "/models/psu/power-supply.glb",
+    description:
+      "Fuente de poder con carcasa, ventilador, entrada de corriente y conectores.",
+    points: [
+      "Outer housing",
+      "Cooling fan",
+      "Power input",
+      "Cable and connector edge",
+    ],
+    price: 129,
+    category: "components",
+    tag: "POWER",
+  },
+];
+
+const products = catalogItems;
+
+function findProduct(id) {
+  return products.find((product) => product.id === id);
+}
+
+function formatPrice(value) {
+  return `$${value.toLocaleString("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })}`;
+}
+
+
+
+THREE.Cache.enabled = true;
+
+const hiddenGraphicsParts = new Set([
+  'Plane',
+  'Plane.001',
+  'fan blades.001',
+  'fan blades.002',
+  'Circle.005',
+  'Circle.009',
+]);
+
+function makeLoader(product) {
+  const loader = new GLTFLoader();
+
+  if (product.id === 'pc') {
+    const dracoLoader = new DRACOLoader();
+    dracoLoader.setDecoderPath('/draco/');
+    loader.setDRACOLoader(dracoLoader);
+  }
+
+  return loader;
+}
+
+function addLights(scene) {
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x303030, 2.2));
+
+  const keyLight = new THREE.DirectionalLight(0xffffff, 3.2);
+  keyLight.position.set(4, 6, 5);
+  scene.add(keyLight);
+
+  const edgeLight = new THREE.DirectionalLight(0xffffff, 1.7);
+  edgeLight.position.set(-4, 3, -4);
+  scene.add(edgeLight);
+}
+
+function hideUnusedGraphicsParts(object, product) {
+  let meshIndex = 0;
+  const isGraphicsCard = product.id === 'rtx';
+
+  object.traverse((child) => {
+    if (!child.isMesh) {
+      return;
+    }
+
+    const hasHiddenName = hiddenGraphicsParts.has(child.name);
+    const isExtraGraphicsMesh =
+      isGraphicsCard && meshIndex >= 8 && meshIndex <= 25;
+    const materials = Array.isArray(child.material)
+      ? child.material
+      : [child.material];
+    const usesHiddenMaterial =
+      isGraphicsCard &&
+      materials.some((material) =>
+        ['Material', 'Metal'].includes(material?.name),
+      );
+
+    if (hasHiddenName || isExtraGraphicsMesh || usesHiddenMaterial) {
+      child.visible = false;
+    }
+
+    meshIndex += 1;
+  });
+}
+
+function normalizeModel(object, product) {
+  hideUnusedGraphicsParts(object, product);
+
+  const bounds = new THREE.Box3();
+  object.traverse((child) => {
+    if (child.isMesh && child.visible) {
+      bounds.expandByObject(child);
+    }
+  });
+
+  if (bounds.isEmpty()) {
+    return;
+  }
+
+  const size = bounds.getSize(new THREE.Vector3());
+  const center = bounds.getCenter(new THREE.Vector3());
+  const largestSide = Math.max(size.x, size.y, size.z) || 1;
+  const scale = 3.05 / largestSide;
+
+  object.scale.setScalar(scale);
+  object.position.sub(center.multiplyScalar(scale));
+
+  const normalizedBounds = new THREE.Box3().setFromObject(object);
+  object.position.y -= normalizedBounds.min.y + 1.05;
+
+  object.traverse((child) => {
+    if (child.isMesh) {
+      child.castShadow = true;
+      child.receiveShadow = true;
+    }
+  });
+}
+
+function disposeModel(object) {
+  object.traverse((child) => {
+    if (!child.isMesh) {
+      return;
+    }
+
+    child.geometry?.dispose();
+    const materials = Array.isArray(child.material)
+      ? child.material
+      : [child.material];
+
+    materials.forEach((material) => {
+      material?.dispose?.();
+    });
+  });
+}
+
+function configureRenderer(renderer, pixelRatio) {
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, pixelRatio));
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+}
+
+function cameraDistance(size, multiplier, minimum) {
+  return Math.max(minimum, size.length() * multiplier);
+}
+
+async function startProductPreview(canvas, product) {
+  const renderer = new THREE.WebGLRenderer({
+    canvas,
+    antialias: true,
+    alpha: true,
+  });
+  configureRenderer(renderer, 1.5);
+
+  const scene = new THREE.Scene();
+  addLights(scene);
+
+  const bounds = canvas.getBoundingClientRect();
+  const camera = new THREE.PerspectiveCamera(
+    32,
+    Math.max(bounds.width, 1) / Math.max(bounds.height, 1),
+    0.01,
+    100,
+  );
+  const modelGroup = new THREE.Group();
+  scene.add(modelGroup);
+
+  const resize = () => {
+    const nextBounds = canvas.getBoundingClientRect();
+    const width = Math.max(nextBounds.width, 1);
+    const height = Math.max(nextBounds.height, 1);
+
+    renderer.setSize(width, height, false);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+  };
+
+  let animationFrame;
+  const stop = () => {
+    cancelAnimationFrame(animationFrame);
+    window.removeEventListener('resize', resize);
+    renderer.dispose();
+  };
+
+  window.addEventListener('resize', resize);
+  resize();
+
+  try {
+    const result = await makeLoader(product).loadAsync(product.model);
+
+    if (!document.body.contains(canvas)) {
+      disposeModel(result.scene);
+      stop();
+      return;
+    }
+
+    normalizeModel(result.scene, product);
+    modelGroup.add(result.scene);
+
+    const modelBounds = new THREE.Box3().setFromObject(modelGroup);
+    const center = modelBounds.getCenter(new THREE.Vector3());
+    const size = modelBounds.getSize(new THREE.Vector3());
+    const distance = cameraDistance(size, 1.35, 4.2);
+
+    camera.position.copy(
+      center
+        .clone()
+        .add(new THREE.Vector3(1, 0.65, 1).normalize().multiplyScalar(distance)),
+    );
+    camera.lookAt(center);
+
+    const animate = () => {
+      if (!document.body.contains(canvas)) {
+        disposeModel(result.scene);
+        stop();
+        return;
+      }
+
+      modelGroup.rotation.y += 0.003;
+      renderer.render(scene, camera);
+      animationFrame = requestAnimationFrame(animate);
+    };
+
+    animate();
+  } catch (error) {
+    stop();
+    throw error;
+  }
+}
+
+function createProductViewer(mount) {
+  const renderer = new THREE.WebGLRenderer({
+    antialias: true,
+    alpha: true,
+  });
+  configureRenderer(renderer, 2);
+  mount.appendChild(renderer.domElement);
+
+  const scene = new THREE.Scene();
+  addLights(scene);
+
+  const camera = new THREE.PerspectiveCamera(34, 1, 0.01, 1000);
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.075;
+  controls.enablePan = false;
+  controls.minDistance = 1.3;
+  controls.maxDistance = 10;
+
+  const modelGroup = new THREE.Group();
+  scene.add(modelGroup);
+
+  let currentModel = null;
+  let initialView = null;
+  let requestNumber = 0;
+
+  const resize = () => {
+    const bounds = mount.getBoundingClientRect();
+    const width = Math.max(bounds.width, 1);
+    const height = Math.max(bounds.height, 1);
+
+    renderer.setSize(width, height, false);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+  };
+
+  const render = () => {
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(render);
+  };
+
+  const clearCurrentModel = () => {
+    if (!currentModel) {
+      return;
+    }
+
+    modelGroup.remove(currentModel);
+    disposeModel(currentModel);
+    currentModel = null;
+  };
+
+  window.addEventListener('resize', resize);
+  resize();
+  render();
+
+  return {
+    resize,
+
+    async show(product) {
+      const currentRequest = ++requestNumber;
+      clearCurrentModel();
+      initialView = null;
+
+      const result = await makeLoader(product).loadAsync(product.model);
+
+      if (currentRequest !== requestNumber) {
+        disposeModel(result.scene);
+        return false;
+      }
+
+      normalizeModel(result.scene, product);
+      modelGroup.add(result.scene);
+      currentModel = result.scene;
+
+      const bounds = new THREE.Box3().setFromObject(result.scene);
+      const center = bounds.getCenter(new THREE.Vector3());
+      const size = bounds.getSize(new THREE.Vector3());
+      const distance = cameraDistance(size, 1.7, 4.4);
+      const position = center
+        .clone()
+        .add(new THREE.Vector3(1, 0.62, 1).normalize().multiplyScalar(distance));
+
+      initialView = {
+        position,
+        target: center.clone(),
+      };
+
+      camera.position.copy(position);
+      controls.target.copy(center);
+      controls.minDistance = Math.max(1.2, size.length() * 0.45);
+      controls.maxDistance = Math.max(8, size.length() * 4);
+      controls.update();
+      return true;
+    },
+
+    reset() {
+      if (!initialView) {
+        return;
+      }
+
+      camera.position.copy(initialView.position);
+      controls.target.copy(initialView.target);
+      controls.update();
+    },
+  };
+}
+
+
+const $ = (id) => document.getElementById(id);
+const ui = {
+  grid: $('product-grid'),
+  count: $('cart-count'),
+  drawer: $('cart-drawer'),
+  lines: $('cart-lines'),
+  scrim: $('drawer-scrim'),
+  productModal: $('product-modal'),
+  viewerMount: $('modal-viewer'),
+  loadStatus: $('modal-load'),
+  category: $('modal-category'),
+  index: $('modal-index'),
+  title: $('modal-title'),
+  description: $('modal-description'),
+  price: $('modal-price'),
+  add: $('modal-add'),
+  reset: $('modal-reset'),
+  checkout: $('checkout-modal'),
+  form: $('checkout-form'),
+  success: $('checkout-success'),
+  checkoutTotal: $('checkout-total'),
+  checkoutOpen: $('checkout-open'),
+  subtotal: $('cart-subtotal'),
+  shipping: $('cart-shipping'),
+  total: $('cart-total'),
+};
+
+const cart = {};
+let activeProduct = products[0];
+let modalViewer;
+let lastFocus;
+let previewObserver;
+
+const getEntries = () =>
+  Object.entries(cart).filter(([, quantity]) => quantity > 0);
+
+const getTotals = () => {
+  const subtotal = getEntries().reduce((sum, [id, quantity]) => {
+    const product = findProduct(id);
+    return sum + (product?.price || 0) * quantity;
+  }, 0);
+  const shipping = subtotal ? 15 : 0;
+  return { subtotal, shipping, total: subtotal + shipping };
+};
+
+function productCard(product) {
+  return `
+    <article class="product-card" data-product="${product.id}" tabindex="0" role="button" aria-label="Ver ${product.name} en 3D">
+      <div class="product-media">
+        <canvas class="product-canvas" data-preview="${product.id}"></canvas>
+        <span class="media-label">${product.index} / 3D</span>
+        <span class="media-code">CLICK TO INSPECT ↗</span>
+      </div>
+      <div class="product-info">
+        <div class="product-top"><span>${product.tag}</span><span>${product.category.toUpperCase()}</span></div>
+        <h3>${product.name}</h3>
+        <p>${product.description}</p>
+        <div class="product-bottom">
+          <span class="product-price"><small>PRECIO DEMO</small>${formatPrice(product.price)}</span>
+          <button class="quick-add" type="button" data-add="${product.id}">+ CARRITO</button>
+        </div>
+      </div>
+    </article>`;
+}
+
+function renderCatalog(category = 'all') {
+  ui.grid.innerHTML = products
+    .filter((product) => category === 'all' || product.category === category)
+    .map(productCard)
+    .join('');
+  observePreviews();
+}
+
+function loadPreview(canvas) {
+  const product = findProduct(canvas.dataset.preview);
+  if (!product) return;
+
+  startProductPreview(canvas, product).catch((error) => {
+    console.error(`No se pudo cargar la vista previa de ${product.id}`, error);
+    canvas.parentElement.classList.add('preview-error');
+    canvas.parentElement.setAttribute(
+      'aria-label',
+      `Vista previa no disponible para ${product.name}`,
+    );
+  });
+}
+
+function observePreviews() {
+  previewObserver?.disconnect();
+  const canvases = ui.grid.querySelectorAll('[data-preview]');
+
+  if (!('IntersectionObserver' in window)) {
+    canvases.forEach(loadPreview);
+    return;
+  }
+
+  previewObserver = new IntersectionObserver(
+    (entries, observer) =>
+      entries.forEach(({ isIntersecting, target }) => {
+        if (isIntersecting) {
+          loadPreview(target);
+          observer.unobserve(target);
+        }
+      }),
+    { rootMargin: '180px' },
+  );
+  canvases.forEach((canvas) => previewObserver.observe(canvas));
+}
+
+function updateModal(product) {
+  ui.category.textContent = `${product.kicker} / ${product.index}`;
+  ui.index.textContent = product.index;
+  ui.title.textContent = product.name;
+  ui.description.textContent = product.description;
+  ui.price.textContent = formatPrice(product.price);
+}
+
+function getModalViewer() {
+  return (modalViewer ??= createProductViewer(ui.viewerMount));
+}
+
+async function loadModalProduct(product) {
+  const viewer = getModalViewer();
+  ui.loadStatus.hidden = false;
+  ui.loadStatus.textContent = 'CARGANDO MODELO 3D';
+  viewer.resize();
+
+  try {
+    await viewer.show(product);
+    ui.loadStatus.hidden = true;
+  } catch (error) {
+    console.error(`No se pudo cargar el modelo de ${product.id}`, error);
+    ui.loadStatus.textContent = 'NO SE PUDO CARGAR EL MODELO · REINTENTA';
+  }
+}
+
+function openProduct(id) {
+  const product = findProduct(id);
+  if (!product) return;
+
+  activeProduct = product;
+  lastFocus = document.activeElement;
+  updateModal(product);
+  ui.productModal.hidden = false;
+  document.body.classList.add('no-scroll');
+  void loadModalProduct(product);
+}
+
+function closeProduct() {
+  ui.productModal.hidden = true;
+  document.body.classList.remove('no-scroll');
+  lastFocus?.focus?.();
+}
+
+function renderCart() {
+  const entries = getEntries();
+  ui.count.textContent = entries.reduce((sum, [, quantity]) => sum + quantity, 0);
+  ui.lines.innerHTML = entries.length
+    ? entries
+        .map(([id, quantity]) => {
+          const product = findProduct(id);
+          return `
+            <div class="cart-line">
+              <div><h3>${product.name}</h3><p>${formatPrice(product.price)} · DEMO</p></div>
+              <div class="line-actions">
+                <button type="button" data-minus="${id}" aria-label="Quitar uno">−</button>
+                <span>${quantity}</span>
+                <button type="button" data-plus="${id}" aria-label="Agregar uno">+</button>
+                <button type="button" data-remove="${id}" aria-label="Eliminar producto">×</button>
+              </div>
+            </div>`;
+        })
+        .join('')
+    : '<p class="empty-cart">Tu carrito está vacío. Abre un producto 3D y agrégalo para comenzar.</p>';
+
+  const totals = getTotals();
+  ui.subtotal.textContent = formatPrice(totals.subtotal);
+  ui.shipping.textContent = formatPrice(totals.shipping);
+  ui.total.textContent = formatPrice(totals.total);
+  ui.checkoutTotal.textContent = formatPrice(totals.total);
+  ui.checkoutOpen.disabled = !entries.length;
+}
+
+function addToCart(id) {
+  if (!findProduct(id)) return;
+  cart[id] = (cart[id] || 0) + 1;
+  renderCart();
+  openCart();
+}
+
+function changeQuantity(id, amount) {
+  cart[id] = (cart[id] || 0) + amount;
+  if (cart[id] <= 0) delete cart[id];
+  renderCart();
+}
+
+function openCart() {
+  ui.drawer.classList.add('is-open');
+  ui.drawer.setAttribute('aria-hidden', 'false');
+  ui.scrim.hidden = false;
+}
+
+function closeCart() {
+  ui.drawer.classList.remove('is-open');
+  ui.drawer.setAttribute('aria-hidden', 'true');
+  ui.scrim.hidden = true;
+}
+
+function openCheckout() {
+  if (!getEntries().length) return;
+  closeCart();
+  ui.form.hidden = false;
+  ui.success.hidden = true;
+  ui.checkout.hidden = false;
+  document.body.classList.add('no-scroll');
+}
+
+function closeCheckout() {
+  ui.checkout.hidden = true;
+  document.body.classList.remove('no-scroll');
+}
+
+function finishCheckout(event) {
+  event.preventDefault();
+  ui.form.hidden = true;
+  ui.success.hidden = false;
+  Object.keys(cart).forEach((id) => delete cart[id]);
+  renderCart();
+}
+
+function bindEvents() {
+  ui.grid.addEventListener('click', (event) => {
+    const addButton = event.target.closest('[data-add]');
+    const card = event.target.closest('[data-product]');
+    if (addButton) return addToCart(addButton.dataset.add);
+    if (card) openProduct(card.dataset.product);
+  });
+
+  ui.grid.addEventListener('keydown', (event) => {
+    if (!['Enter', ' '].includes(event.key) || event.target.closest('[data-add]')) return;
+    const card = event.target.closest('[data-product]');
+    if (!card) return;
+    event.preventDefault();
+    openProduct(card.dataset.product);
+  });
+
+  ui.lines.addEventListener('click', (event) => {
+    const button = event.target.closest('button');
+    if (!button) return;
+    if (button.dataset.minus) changeQuantity(button.dataset.minus, -1);
+    if (button.dataset.plus) changeQuantity(button.dataset.plus, 1);
+    if (button.dataset.remove) {
+      delete cart[button.dataset.remove];
+      renderCart();
+    }
+  });
+
+  document.querySelectorAll('.category-filter').forEach((button) => {
+    button.addEventListener('click', () => {
+      document.querySelectorAll('.category-filter').forEach((item) =>
+        item.classList.toggle('is-active', item === button),
+      );
+      renderCatalog(button.dataset.category);
+    });
+  });
+
+  $('modal-close').addEventListener('click', closeProduct);
+  ui.productModal.addEventListener('click', (event) => {
+    if (event.target === ui.productModal) closeProduct();
+  });
+  ui.add.addEventListener('click', () => addToCart(activeProduct.id));
+  ui.reset.addEventListener('click', () => modalViewer?.reset());
+  $('cart-open').addEventListener('click', openCart);
+  $('cart-close').addEventListener('click', closeCart);
+  ui.scrim.addEventListener('click', closeCart);
+  ui.checkoutOpen.addEventListener('click', openCheckout);
+  $('checkout-close').addEventListener('click', closeCheckout);
+  ui.form.addEventListener('submit', finishCheckout);
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeProduct();
+      closeCheckout();
+      closeCart();
+    }
+  });
+}
+
+bindEvents();
+renderCatalog();
+renderCart();
+    </script>
+  </body>
+</html>
